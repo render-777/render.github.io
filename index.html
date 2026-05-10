@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>몽글 레시피</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Mongle Recipe</p>
+        <h1>몽글몽글 레시피 노트</h1>
+      </div>
+      <div class="hero-badge" aria-hidden="true">
+        <span></span>
+        <strong>냠</strong>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel form-panel" aria-labelledby="form-title">
+        <div class="section-heading">
+          <h2 id="form-title">레시피 등록</h2>
+          <p>사진과 함께 오늘의 맛을 남겨요.</p>
+        </div>
+
+        <form id="recipe-form" class="recipe-form">
+          <label>
+            <span>메뉴 이름</span>
+            <input name="title" type="text" placeholder="예: 감자조림" required>
+          </label>
+
+          <label>
+            <span>한 줄 소개</span>
+            <input name="summary" type="text" placeholder="포슬포슬 달콤한 집밥 반찬">
+          </label>
+
+          <div class="field-grid">
+            <label>
+              <span>인분</span>
+              <input name="servings" type="text" placeholder="2인분">
+            </label>
+            <label>
+              <span>시간</span>
+              <input name="time" type="text" placeholder="30분">
+            </label>
+            <label>
+              <span>난이도</span>
+              <select name="difficulty">
+                <option>쉬움</option>
+                <option selected>보통</option>
+                <option>정성 필요</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="photo-picker">
+            <span>사진</span>
+            <input id="photo-input" name="photo" type="file" accept="image/png,image/jpeg,image/webp">
+            <div class="photo-preview">
+              <img id="photo-preview" src="/images/placeholder.svg" alt="">
+              <small id="photo-name">사진을 선택해 주세요</small>
+            </div>
+          </label>
+
+          <label>
+            <span>재료</span>
+            <textarea name="ingredients" rows="5" placeholder="한 줄에 하나씩 적어주세요"></textarea>
+          </label>
+
+          <label>
+            <span>조리 순서</span>
+            <textarea name="steps" rows="6" placeholder="한 단계씩 줄을 나눠 적어주세요"></textarea>
+          </label>
+
+          <button class="primary-button" type="submit">레시피 저장</button>
+          <p id="form-message" class="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="recipes-area" aria-labelledby="list-title">
+        <div class="search-card">
+          <div>
+            <p class="eyebrow">Search</p>
+            <h2 id="list-title">등록된 레시피</h2>
+          </div>
+          <label class="search-box">
+            <span>검색</span>
+            <input id="search-input" type="search" placeholder="갈비찜, 김치, 돼지고기...">
+          </label>
+        </div>
+
+        <div id="recipes" class="recipe-grid"></div>
+      </section>
+    </main>
+
+    <dialog id="recipe-dialog">
+      <article class="dialog-card">
+        <button id="dialog-close" class="icon-button" type="button" aria-label="닫기">×</button>
+        <img id="dialog-image" src="/images/placeholder.svg" alt="">
+        <div class="dialog-content">
+          <p id="dialog-meta" class="pill-line"></p>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-summary"></p>
+          <h3>재료</h3>
+          <ul id="dialog-ingredients"></ul>
+          <h3>조리 순서</h3>
+          <ol id="dialog-steps"></ol>
+          <p id="dialog-source" class="source"></p>
+        </div>
+      </article>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
