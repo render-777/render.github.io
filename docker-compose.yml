@@ -1,0 +1,9 @@
+services:
+  recipe-page:
+    build: .
+    container_name: project-menu-recipe-page
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

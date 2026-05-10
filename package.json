@@ -1,0 +1,9 @@
+{
+  "name": "project-menu",
+  "version": "1.0.0",
+  "description": "Cute rounded recipe registration and search web page packaged for Docker.",
+  "private": true,
+  "scripts": {
+    "start": "python app.py"
+  }
+}
